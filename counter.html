@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  margin: 0;
+  background: #020202;
+  cursor: crosshair;
+}
+
+
+@keyframes glow{
+  from{text-shadow:0px 0px 5px #fff,0px 0px 5px #614ad3;}
+  to{text-shadow:0px 0px 20px #fff,0px 0px 20px #614ad3;}
+}
+canvas{display:block}
+h2 {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  font-family: "Source Sans Pro";
+  font-size: 5em;
+  font-weight: 700;
+  -webkit-user-select: none;
+  user-select: none;
+ 
+}
+</style>
+</head>
+<body>
+        <h2 id="time"></h2>
+        <!-- <h2 id="heading" >Happy Birthday Suvi <i style="color:red; ">&hearts;</i>...  </h2>
+        <canvas id="birthday"></canvas> -->
+
+<script>
+//helper functions
+
+
+    console.clear();
+var log = console.log;
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+	// Set the date we're counting down to
+	var countDownDate = new Date("may 8, 2024 00:00:00").getTime();
+	
+	var now = new Date().getTime();
+	
+	// Find the distance between now an the count down date
+	var distance = countDownDate-now;
+
+	// Time calculations for days, hours, minutes and seconds (getTime is given in miliseconds)
+	var days = Math.floor(distance / (1000 * 86400)); // 1 day = 86400 sec
+	var hours = Math.floor((distance % (1000 * 86400)) / (1000 * 3600)); // 1hour = 3600 sec
+	var minutes = Math.floor((distance % (1000 * 3600)) / (1000 * 60));
+	var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+	var timepassed = now-countDownDate;
+	var d = Math.floor(timepassed / (1000 * 86400));
+	var h = Math.floor((timepassed % (1000 * 86400)) / (1000 * 60 * 60));
+	var m = Math.floor((timepassed % (1000 * 3600)) / (1000 * 60));
+	var s = Math.floor((timepassed % (1000 * 60)) / 1000);
+
+	// Display the result in the element with id="demo"
+    
+	document.getElementById("time").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+	// If the count down is finished, write some text 
+	if (distance < 0) {
+       // this.firework()
+       // document.getElementById("heading").innerHTML="
+       location.replace("./bday.html")
+
+       location.href("./bday.html")
+    }
+
+}, 1000); // refresh every second
+</script>
+</body>
+</html>
